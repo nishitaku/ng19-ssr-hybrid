@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { rxResource } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { BlogService } from '../../services/blog.service';
 
@@ -12,5 +13,7 @@ import { BlogService } from '../../services/blog.service';
 export class BlogPageComponent {
   private readonly blogService = inject(BlogService);
 
-  blogs = this.blogService.fetchBlogs();
+  blogsResource = rxResource({
+    loader: () => this.blogService.fetchBlogs(),
+  });
 }

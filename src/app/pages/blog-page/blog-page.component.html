@@ -1,6 +1,12 @@
 <h2>BLOG</h2>
-@for(blog of blogs(); track blog.id) {
-<div>
-  <a [routerLink]="['/blog', blog.id]">{{ blog.title }}</a>
-</div>
+@if(blogsResource.value(); as blogs) {
+  @for(blog of blogs.contents; track blog.id) {
+    <div>
+      <a [routerLink]="['/blog', blog.id]">{{ blog.title }}</a>
+    </div>
+  }
+} @else if (blogsResource.error()) {
+  <div>Load failed</div>
+} @else {
+  <div>Loading...</div>
 }
