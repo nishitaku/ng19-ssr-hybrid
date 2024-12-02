@@ -4,18 +4,18 @@ import { firstValueFrom } from 'rxjs';
 import { BlogService } from './services/blog.service';
 
 export const serverRoutes: ServerRoute[] = [
-  {
-    path: 'about',
-    renderMode: RenderMode.Client,
-  },
-  {
-    path: 'profile',
-    renderMode: RenderMode.Prerender,
-  },
-  {
-    path: 'setting',
-    renderMode: RenderMode.Server,
-  },
+  // {
+  //   path: 'about',
+  //   renderMode: RenderMode.Client,
+  // },
+  // {
+  //   path: 'profile',
+  //   renderMode: RenderMode.Prerender,
+  // },
+  // {
+  //   path: 'setting',
+  //   renderMode: RenderMode.Server,
+  // },
   {
     path: 'blog',
     renderMode: RenderMode.Prerender,
