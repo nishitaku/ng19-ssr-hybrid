@@ -14,6 +14,7 @@ const serverConfig: ApplicationConfig = {
     {
       provide: AuthService,
       useValue: {
+        user$: of(),
         isAuthenticated$: of(),
       },
     },

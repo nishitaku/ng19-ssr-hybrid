@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { AuthGuard } from '@auth0/auth0-angular';
+import { settingGuard } from './guard/setting.guard';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { BlogPageComponent } from './pages/blog-page/blog-page.component';
@@ -27,7 +27,7 @@ export const routes: Routes = [
       },
       {
         path: 'setting',
-        canActivate: [AuthGuard],
+        canActivate: [settingGuard],
         component: SettingPageComponent,
       },
       {
