@@ -1,4 +1,12 @@
 <h1>SETTING</h1>
-<p>{{ uuid() }}</p>
 <p>{{ pokemonJpName() }}</p>
 <img [src]="pokemon()?.sprites?.front_default" />
+
+@if(isAuthenticated()) {
+  <ul>
+    <li>{{user()?.name}}</li>
+    <li>{{user()?.email}}</li>
+  </ul>
+
+  <button (click)="logout()">Logout</button>
+}

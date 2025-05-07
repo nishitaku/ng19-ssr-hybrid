@@ -1,37 +1,47 @@
 import { Routes } from '@angular/router';
+import { settingGuard } from './guard/setting.guard';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import { AboutPageComponent } from './pages/about-page/about-page.component';
 import { BlogPageComponent } from './pages/blog-page/blog-page.component';
 import { PostPageComponent } from './pages/post-page/post-page.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
+import { SettingPageComponent } from './pages/setting-page/setting-page.component';
 
 export const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    redirectTo: '/blog',
-  },
-  // {
-  //   path: 'about',
-  //   component: AboutPageComponent,
-  // },
-  // {
-  //   path: 'profile',
-  //   component: ProfilePageComponent,
-  //   children: [
-  //     {
-  //       path: 'setting',
-  //       component: SettingPageComponent,
-  //     },
-  //   ],
-  // },
-  {
-    path: 'blog',
+    component: MainLayoutComponent,
     children: [
       {
         path: '',
-        component: BlogPageComponent,
+        pathMatch: 'full',
+        redirectTo: 'blog',
       },
       {
-        path: ':id',
-        component: PostPageComponent,
+        path: 'about',
+        component: AboutPageComponent,
+      },
+      {
+        path: 'profile',
+        component: ProfilePageComponent,
+      },
+      {
+        path: 'setting',
+        canActivate: [settingGuard],
+        component: SettingPageComponent,
+      },
+      {
+        path: 'blog',
+        children: [
+          {
+            path: '',
+            component: BlogPageComponent,
+          },
+          {
+            path: ':id',
+            component: PostPageComponent,
+          },
+        ],
       },
     ],
   },

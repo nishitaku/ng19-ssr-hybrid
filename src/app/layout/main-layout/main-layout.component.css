@@ -1,0 +1,13 @@
+nav {
+  ul {
+    height: 40px;
+    background-color: #F9F9F9;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    li {
+      display: inline-block;
+    }
+  }
+}
